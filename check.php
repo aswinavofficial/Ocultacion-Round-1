@@ -28,18 +28,65 @@ $next="";
 	 }
         
     }
-	else {
-      if(strcmp($answer,"Even")==0)
+	else if(strcmp($answer,"Even")==0)
 	 {
 	       $filename="images/correct.jpg";
 	 }
+	 else if (isset($_POST['opt1'])) {
+	 if(strcmp($answer,$_POST['opt1'])==0)
+	 {
+		  $filename="images/correct.jpg";
+	 }
+	 else
+	 {
+		  $filename="images/wrong.jpg";
+		  $_SESSION['life']=$_SESSION['life']-1;
+	 }
+        
+    }
+	else if (isset($_POST['opt2'])) {
+	 if(strcmp($answer,$_POST['opt2'])==0)
+	 {
+		  $filename="images/correct.jpg";
+	 }
+	 else
+	 {
+		  $filename="images/wrong.jpg";
+		  $_SESSION['life']=$_SESSION['life']-1;
+	 }
+        
+    }
+	else if (isset($_POST['opt3'])) {
+	 if(strcmp($answer,$_POST['opt3'])==0)
+	 {
+		  $filename="images/correct.jpg";
+	 }
+	 else
+	 {
+		  $filename="images/wrong.jpg";
+		  $_SESSION['life']=$_SESSION['life']-1;
+	 }
+        
+    }
+	else if (isset($_POST['opt4'])) {
+	 if(strcmp($answer,$_POST['opt4'])==0)
+	 {
+		  $filename="images/correct.jpg";
+	 }
+	 else
+	 {
+		  $filename="images/wrong.jpg";
+		  $_SESSION['life']=$_SESSION['life']-1;
+	 }
+        
+    }
 	 else
 	 {
 		   $filename="images/wrong.jpg";
 		   $_SESSION['life']=$_SESSION['life']-1;
 	 }
 		
-    }
+    
  
  $random_key=array_rand($_SESSION['ques_no'],1);
  $ky=$_SESSION['ques_no'][$random_key];
@@ -50,11 +97,11 @@ $_SESSION['id']=$ky;
 
  if(strcmp($details['type'],"oddeven")==0)
  {
-	 $next="oddeven.php";
+	 $next="oddeven.php?id=".$ky;
  }
  else
  {
-	$next="logo.php";
+	$next="logo.php?id=".$ky;
  }
 
  

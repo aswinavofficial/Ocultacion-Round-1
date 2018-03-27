@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once 'db/dboperations.php';
-
+$_SESSION['life']=3;
  $objUser = new User();
 $res=$objUser->question_ids();
  $_SESSION['ques_no']=array();
@@ -17,17 +17,18 @@ $res=$objUser->question_ids();
  echo $details['id'];
   echo $details['type'];
   $_SESSION['id']=$details['id'];
-  
+  $nid=$details['id'];
+ 
   if(strcmp($details['type'],"oddeven")==0)
  {
 	 
-	 header("location:oddeven.php");
+	 header("location:oddeven.php?id=".$nid);
 	  
  }
  else
  {
-	 header("location:logo.php");
- }
+	 header("location:logo.php?id=".$nid);
+ }  
 
  //header("location:main.php");
 ?>

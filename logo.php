@@ -1,3 +1,30 @@
+<?php
+session_start();
+include_once 'db/dboperations.php';
+
+
+$objUser = new User();
+       $idq=$_GET['id'];
+		
+ 	   $rest=$objUser->random_question($idq);
+        $details=mysqli_fetch_assoc($rest);
+
+ $answer=$details['answer'];
+    
+
+   
+   /*
+    $random_key=array_rand($_SESSION['ques_no'],1);
+	   $rest=$objUser->random_question($_SESSION['ques_no'][$random_key]);
+  unset($_SESSION['ques_no'][$random_key]);
+ $details=mysqli_fetch_assoc($rest);
+	 $random_key=array_rand($_SESSION['ques_no'],1);
+ //$_SESSION['ques_no'][$random_key];
+ unset($_SESSION['ques_no'][$random_key]);
+*/
+?>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -95,11 +122,13 @@
             },3000);
         var tmr = setInterval(function(){
            $(document).ready(function(){
+			   
                cnt--;
                if(cnt==0)
                {
                    clearInterval(changebtn);
                    clearInterval(tmr);
+				   window.location = "check.php?timeover=1";
                }
                if(cnt>=5)
                {
@@ -130,13 +159,13 @@
                 <br/>
                 <h2 class="card-title">Question : </h2>
                 <br/>
-                <img src="img.png" width="100px" height="140px">
+                <img src="images/<?php echo $details['image']; ?>" width="100px" height="140px">
                 <br/><br/>
-                <form id="frm" action="test" method="POST">
-                    <button id="opt1" name="opt1" class="btn btn-outline-primary col-sm-4" value="Opt1">Opt1</button>&nbsp;&nbsp;
-                    <button id="opt2" name="opt2" class="btn btn-outline-primary col-sm-4" value="Opt2">Opt2</button><br/><br/>
-                    <button id="opt3" name="opt3" class="btn btn-outline-primary col-sm-4" value="Opt3">Opt3</button>&nbsp;&nbsp;
-                    <button id="opt4" name="opt3" class="btn btn-outline-primary col-sm-4" value="Opt4">Opt4</button>
+                <form id="frm" action="check.php?timeover=0" method="POST">
+                    <button id="opt1" name="opt1" class="btn btn-outline-primary col-sm-4" value="<?php echo $details['opt1']; ?>"><?php echo $details['opt1']; ?></button>&nbsp;&nbsp;
+                    <button id="opt2" name="opt2" class="btn btn-outline-primary col-sm-4" value="<?php echo $details['opt2']; ?>"><?php echo $details['opt2']; ?></button><br/><br/>
+                    <button id="opt3" name="opt3" class="btn btn-outline-primary col-sm-4" value="<?php echo $details['opt3']; ?>"><?php echo $details['opt3']; ?></button>&nbsp;&nbsp;
+                    <button id="opt4" name="opt3" class="btn btn-outline-primary col-sm-4" value="<?php echo $details['opt4']; ?>"><?php echo $details['opt4']; ?></button>
                 </form>
                 </div>                
             </div>

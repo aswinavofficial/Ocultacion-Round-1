@@ -1,11 +1,11 @@
 <?php
 session_start();
 include_once 'db/dboperations.php';
-$_SESSION['life']=3;
+
 
 $objUser = new User();
-       // $idq=$_SESSION['id'];
-	   $_SESSION['id']=1;
+        $idq=$_GET['id'];
+	   //$_SESSION['id']=1;
 		$idq=1;
  	   $rest=$objUser->random_question($idq);
         $details=mysqli_fetch_assoc($rest);
