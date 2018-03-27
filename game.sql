@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 27, 2018 at 09:49 PM
+-- Generation Time: Mar 27, 2018 at 10:33 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -48,28 +48,28 @@ CREATE TABLE IF NOT EXISTS `questions` (
 
 INSERT INTO `questions` (`id`, `question`, `opt1`, `opt2`, `opt3`, `opt4`, `answer`, `image`, `type`) VALUES
 (1, '7 + 2*3', 'Odd', 'Even', NULL, NULL, 'Odd', NULL, 'oddeven'),
-(2, NULL, 'Ubuntu', 'Mint', NULL, NULL, NULL, 'ubuntu.png', 'logo'),
-(3, 'hello', '1', '2', '3', '4', 'dvcads', NULL, 'quiz'),
-(4, '9', 'x', 'C', 'cWE', 'CWE', 'WC', NULL, 'quiz'),
-(5, 'xdbd', 'bsdfb', 'sbdfb', 'bsd', 'bfb ', 'bsdfb', 'bdbf', 'quiz'),
-(6, 'bdb d', 'bdb d', 'bsxdfb ', 'sbsdfb ', 'bsfb s', 'sbdfb ', 'vsb', 'quiz'),
-(7, 't1', 'vsc', 'cadvca', 'vwev', 'qwrbva', 'qawbv ', 'wv sz', 'quiz'),
-(8, 't4', NULL, NULL, NULL, NULL, NULL, NULL, 'quiz'),
-(9, 't6', 'afsv', 'sbes', 'serbws', 'aebfs', 'bsdv', 'gwsergw', 'quiz'),
-(10, 'qfved', 'qvwsav', 'qvfd', 'gqvesds ', 'qevdc ', 'vqeadc ', 'qgvars ', 'quiz'),
-(11, 'wefvwgfc', 'fqawegvqw', 'qegfvswerv', '2fvsrbv', 'qf3veaf', 'fedvwaws', 'frqaegwe', 'quiz'),
-(12, 'ewgfvsegqfgvs', 'qwdfqcwa', 'qD', 'qwd', 'E', 'Dqfe', '1dsdx', 'quiz'),
-(13, 'sfqdf', 'qfdqw', 'wfqeqfq', 'qwfqe', 'wrfqef', 'rfq', 'rfqfa', 'quiz'),
-(14, 'xfcawgvsfaev', 'efsv', 'egfvaw', 'wefvawev', 'evfaedc', 'fegfv', 'fefveegv', 'quiz'),
-(15, 'gvfsedv', 'asdvsz', 'afsvdc z', 'fasdv ', 'dfvsdzv ', 'fasdvc afcavc', NULL, 'quiz'),
-(16, 'aCACXC', 'fcadva', 'awv zsdvc ', 'casvd ', 'sdvawv', 'v awvc ', 'vvavcawc', 'quiz'),
-(17, 'xcwdv', 'vavca', 'xv zsv ', 'vasdvZ', 'ASCsvc', 'vaVaA', 'ASDVASDCA', 'quiz'),
-(18, 'VASDVA', 'ZXCASC', 'ZVAZ', 'XVAS', 'SDVA', 'AVWD', 'ADVAW', 'quiz'),
-(19, 'UTJTGJ', 'JGHF', 'GJFRJ', 'FDHTYH', 'FHDTR', 'TGR', 'FGDFGR', 'quiz'),
-(20, 'TFG', 'VV', 'CV', 'CF', 'DF', 'FG', 'G', 'quiz'),
-(21, 'SVFSD ASCVSDF', 'CVSDFV VA', 'ASDBA', 'ASDVASDVASDVA', 'SDVADV', 'ZXVADV', 'SDVABV', 'quiz'),
-(22, 'ZBV AZS ', 'SDV ASZB ', 'ZXVAV', 'SDBVBA', 'SCBAV', 'SADDBAASV', 'ASVAV', 'quiz'),
-(23, 'ZXVAB', 'ZXVA', 'DSBVA', 'SBV', 'ZXV', 'advA', 'v', 'quiz');
+(2, NULL, 'Epiphany', 'Elementary', 'Emacs', 'Simphony', 'Elementary', 'q1.jpg', 'logo'),
+(3, '7 * 3 + 5', 'Odd', 'Even', '3', '4', 'Even', NULL, 'oddeven'),
+(4, '9', 'Iris', 'Spark', 'Hadoop', 'Cassandra', 'Cassandra', 'q2.jpg', 'logo'),
+(5, 'xdbd', 'bsdfb', 'sbdfb', 'bsd', 'bfb ', 'bsdfb', 'bdbf', 'oddeven'),
+(6, 'bdb d', 'bdb d', 'bsxdfb ', 'sbsdfb ', 'bsfb s', 'sbdfb ', 'vsb', 'oddeven'),
+(7, 't1', 'vsc', 'cadvca', 'vwev', 'qwrbva', 'qawbv ', 'wv sz', 'oddeven'),
+(8, 't4', NULL, NULL, NULL, NULL, NULL, NULL, 'oddeven'),
+(9, 't6', 'afsv', 'sbes', 'serbws', 'aebfs', 'bsdv', 'gwsergw', 'oddeven'),
+(10, 'qfved', 'qvwsav', 'qvfd', 'gqvesds ', 'qevdc ', 'vqeadc ', 'qgvars ', 'oddeven'),
+(11, 'wefvwgfc', 'fqawegvqw', 'qegfvswerv', '2fvsrbv', 'qf3veaf', 'fedvwaws', 'frqaegwe', 'oddeven'),
+(12, 'ewgfvsegqfgvs', 'qwdfqcwa', 'qD', 'qwd', 'E', 'Dqfe', '1dsdx', 'oddeven'),
+(13, 'sfqdf', 'qfdqw', 'wfqeqfq', 'qwfqe', 'wrfqef', 'rfq', 'rfqfa', 'oddeven'),
+(14, 'xfcawgvsfaev', 'efsv', 'egfvaw', 'wefvawev', 'evfaedc', 'fegfv', 'fefveegv', 'oddeven'),
+(15, 'gvfsedv', 'asdvsz', 'afsvdc z', 'fasdv ', 'dfvsdzv ', 'fasdvc afcavc', NULL, 'oddeven'),
+(16, 'aCACXC', 'fcadva', 'awv zsdvc ', 'casvd ', 'sdvawv', 'v awvc ', 'vvavcawc', 'oddeven'),
+(17, 'xcwdv', 'vavca', 'xv zsv ', 'vasdvZ', 'ASCsvc', 'vaVaA', 'ASDVASDCA', 'oddeven'),
+(18, 'VASDVA', 'ZXCASC', 'ZVAZ', 'XVAS', 'SDVA', 'AVWD', 'ADVAW', 'oddeven'),
+(19, 'UTJTGJ', 'JGHF', 'GJFRJ', 'FDHTYH', 'FHDTR', 'TGR', 'FGDFGR', 'oddeven'),
+(20, 'TFG', 'VV', 'CV', 'CF', 'DF', 'FG', 'G', 'oddeven'),
+(21, 'SVFSD ASCVSDF', 'CVSDFV VA', 'ASDBA', 'ASDVASDVASDVA', 'SDVADV', 'ZXVADV', 'SDVABV', 'oddeven'),
+(22, 'ZBV AZS ', 'SDV ASZB ', 'ZXVAV', 'SDBVBA', 'SCBAV', 'SADDBAASV', 'ASVAV', 'oddeven'),
+(23, '3^2 + 5', 'Odd', 'Even', 'SBV', 'ZXV', 'Even', 'v', 'oddeven');
 
 -- --------------------------------------------------------
 
