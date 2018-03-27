@@ -40,6 +40,7 @@ $objUser = new User();
 		
         cnt=6;
         life=<?php echo $_SESSION['life'] ?>;
+		
         function changelife(){
            if(life==3)
            {
@@ -81,6 +82,9 @@ $objUser = new User();
         $(document).ready(function(){
            changelife();
         });
+		
+
+
         var changebtn = setInterval(function(){
                   var id1 = $("#frm").find("button").first().attr("id");
                   var id2 = $("#frm").find("button").next().attr("id");

@@ -13,7 +13,7 @@ include_once 'db/dboperations.php';
 	if($_GET['timeover'])
 	{
 		$filename="images/timeout.png";
-		  $_SESSION['life']=2;
+		  $_SESSION['life']=$_SESSION['life']-1;
 	 }
 	
  else if (isset($_POST['Odd'])) {
@@ -36,7 +36,7 @@ include_once 'db/dboperations.php';
 	 else
 	 {
 		   $filename="images/wrong.jpg";
-		    $_SESSION['life']=$_SESSION['life']-1;
+		   $_SESSION['life']=$_SESSION['life']-1;
 	 }
 		
     }
