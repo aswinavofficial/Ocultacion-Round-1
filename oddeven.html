@@ -11,16 +11,27 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script type="text/javascript">
         cnt=10;
-        /*setInterval(function(){
-                  var swap_id = $("#frm").$("button:first").attr("id");
-                  alert("Your id is : "+swap_id);
-            },3000);*/
-        setInterval(function(){
+        var changebtn = setInterval(function(){
+                  var id1 = $("#frm").find("button").first().attr("id");
+                  var id2 = $("#frm").find("button").next().attr("id");
+                  var txt1 = $("#frm").find("button").first().text();
+                  var txt2 = $("#frm").find("button").next().text();
+                  console.log("Your id is : "+id1);
+                  console.log("Your id is : "+id2);
+                  console.log("Your text is : "+txt1);
+                  console.log("Your text is : "+txt2);
+                  $("#frm").find("button").first().attr("id",id2);
+                  $("#frm").find("button").next().attr("id",id1);
+                  $("#frm").find("button").first().text(txt2);
+                  $("#frm").find("button").next().text(txt1);
+            },3000);
+        var tmr = setInterval(function(){
            $(document).ready(function(){
                cnt--;
                if(cnt==0)
                {
-                   cnt=10;
+                   clearInterval(changebtn);
+                   clearInterval(tmr);
                }
                if(cnt>=5)
                {
