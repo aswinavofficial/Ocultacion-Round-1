@@ -2,7 +2,7 @@
 session_start();
 include_once 'db/dboperations.php';
 
-
+echo $_SESSION['life'];
 $objUser = new User();
        $idq=$_GET['id'];
 		
