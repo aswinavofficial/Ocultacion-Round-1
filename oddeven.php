@@ -5,8 +5,8 @@ include_once 'db/dboperations.php';
 
 $objUser = new User();
         $idq=$_GET['id'];
-	   //$_SESSION['id']=1;
-		$idq=1;
+	  
+		//echo  $_GET['id'];
  	   $rest=$objUser->random_question($idq);
         $details=mysqli_fetch_assoc($rest);
 
