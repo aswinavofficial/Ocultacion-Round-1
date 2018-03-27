@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Time Challenge</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+        cnt=10;
+        /*setInterval(function(){
+                  var swap_id = $("#frm").$("button:first").attr("id");
+                  alert("Your id is : "+swap_id);
+            },3000);*/
+        setInterval(function(){
+           $(document).ready(function(){
+               cnt--;
+               if(cnt==0)
+               {
+                   cnt=10;
+               }
+               if(cnt>=5)
+               {
+                   $("#tmr").html("<h3 style=\"color: blue;\"><i id=\"tmr\" class=\"fas fa-stopwatch\" style=\"font-size: 30px;\"></i>&nbsp;&nbsp;"+cnt+" s</h3>");
+               }
+               if(cnt<5 && cnt>0)
+               {
+                   $("#tmr").html("<h3 style=\"color: red;\"><i id=\"tmr\" class=\"fas fa-stopwatch\" style=\"font-size: 30px;\"></i>&nbsp;&nbsp;"+cnt+" s</h3>");
+               }
+           });
+        },1000);
+        </script>
+    </head>
+    <body>
+        <div class="container" align="center">
+            <br/>
+            <br/>
+            <h1>Odd or Even</h1>
+            <br/>
+            <h3>Life : </h3>
+            <i id="lf1" class="fas fa-heart" style="font-size: 30px;color: red;"></i>
+            <i id="lf1" class="fas fa-heart" style="font-size: 30px;color: red;"></i>
+            <i id="lf1" class="far fa-heart" style="font-size: 30px;color: red;"></i>
+            <br/>
+            <br/>
+            <div class="card col-sm-4" id="ques">
+                <div class="card-body">
+                <br/>
+                <h2 class="card-title">Question : </h2>
+                <br/>
+                <h3 style="color: blue;">1 + 2*3</h3>
+                <br/>
+                <form id="frm" action="" method="POST">
+                    <button id="odd" class="btn btn-outline-primary col-sm-4">Odd</button>&nbsp;&nbsp;
+                    <button id="even" class="btn btn-outline-primary col-sm-4">Even</button>
+                </form>
+                </div>                
+            </div>
+            <br/>
+            <div>
+                <h3>Timer : </h3>
+                <h3 id="tmr" style="color: blue;"><i class="fas fa-stopwatch" style="font-size: 30px;"></i>&nbsp;&nbsp;10 s</h3>
+            </div>
+        </div>
+    </body>
+</html>
