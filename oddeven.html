@@ -11,19 +11,55 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script type="text/javascript">
         cnt=10;
+        life=3;
+        function changelife(){
+           if(life==3)
+           {
+               $("#lf1").removeClass("far");
+               $("#lf2").removeClass("far");
+               $("#lf3").removeClass("far");
+               $("#lf1").addClass("fas");
+               $("#lf2").addClass("fas");
+               $("#lf3").addClass("fas");
+           }
+           if(life==2)
+           {
+               $("#lf1").removeClass("far");
+               $("#lf2").removeClass("far");
+               $("#lf3").removeClass("fas");
+               $("#lf1").addClass("fas");
+               $("#lf2").addClass("fas");
+               $("#lf3").addClass("far");
+           }
+           if(life==1)
+           {
+               $("#lf1").removeClass("far");
+               $("#lf2").removeClass("fas");
+               $("#lf3").removeClass("fas");
+               $("#lf1").addClass("fas");
+               $("#lf2").addClass("far");
+               $("#lf3").addClass("far");
+           }
+           if(life==0)
+           {
+               $("#lf1").removeClass("fas");
+               $("#lf2").removeClass("fas");
+               $("#lf3").removeClass("fas");
+               $("#lf1").addClass("far");
+               $("#lf2").addClass("far");
+               $("#lf3").addClass("far");
+           }
+        }
         var changebtn = setInterval(function(){
                   var id1 = $("#frm").find("button").first().attr("id");
                   var id2 = $("#frm").find("button").next().attr("id");
                   var txt1 = $("#frm").find("button").first().text();
                   var txt2 = $("#frm").find("button").next().text();
-                  console.log("Your id is : "+id1);
-                  console.log("Your id is : "+id2);
-                  console.log("Your text is : "+txt1);
-                  console.log("Your text is : "+txt2);
                   $("#frm").find("button").first().attr("id",id2);
                   $("#frm").find("button").next().attr("id",id1);
                   $("#frm").find("button").first().text(txt2);
                   $("#frm").find("button").next().text(txt1);
+                  changelife();
             },3000);
         var tmr = setInterval(function(){
            $(document).ready(function(){
@@ -53,8 +89,8 @@
             <br/>
             <h3>Life : </h3>
             <i id="lf1" class="fas fa-heart" style="font-size: 30px;color: red;"></i>
-            <i id="lf1" class="fas fa-heart" style="font-size: 30px;color: red;"></i>
-            <i id="lf1" class="far fa-heart" style="font-size: 30px;color: red;"></i>
+            <i id="lf2" class="fas fa-heart" style="font-size: 30px;color: red;"></i>
+            <i id="lf3" class="far fa-heart" style="font-size: 30px;color: red;"></i>
             <br/>
             <br/>
             <div class="card col-sm-4" id="ques">
