@@ -1,27 +1,3 @@
-<?php
-session_start();
-include_once 'db/dboperations.php';
-
-$objUser = new User();
-
- 	   $rest=$objUser->random_question($_SESSION['id']);
-        $details=mysqli_fetch_assoc($rest);
-
- 
-
- if(isset($_POST['submit']))
-   {
-	    $random_key=array_rand($_SESSION['ques_no'],1);
-	   $rest=$objUser->random_question($_SESSION['ques_no'][$random_key]);
-  unset($_SESSION['ques_no'][$random_key]);
- $details=mysqli_fetch_assoc($rest);
-	 $random_key=array_rand($_SESSION['ques_no'],1);
- //$_SESSION['ques_no'][$random_key];
- unset($_SESSION['ques_no'][$random_key]);
-
-   }
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -35,7 +11,7 @@ $objUser = new User();
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script type="text/javascript">
         cnt=10;
-        life=0;
+        life=3;
         function changelife(){
            if(life==3)
            {
@@ -78,16 +54,44 @@ $objUser = new User();
            changelife();
         });
         var changebtn = setInterval(function(){
-                  var id1 = $("#frm").find("button").first().attr("id");
-                  var id2 = $("#frm").find("button").next().attr("id");
-                  var txt1 = $("#frm").find("button").first().text();
-                  var txt2 = $("#frm").find("button").next().text();
-                  $("#frm").find("button").first().attr("id",id2);
-                  $("#frm").find("button").next().attr("id",id1);
-                  $("#frm").find("button").first().attr("value",txt2);
-                  $("#frm").find("button").next().attr("value",txt1);
-                  $("#frm").find("button").first().text(txt2);
-                  $("#frm").find("button").next().text(txt1);
+                 var rndarr = [];
+                 var flg=0;
+                 for(var i=0;i<4;i++)
+                 {
+                    var gen=Math.round(Math.random()*3);
+                    for(var j=0;j<rndarr.length;j++)
+                    {
+                       if(rndarr[j]==gen)
+                       {
+                            flg=1;
+                            break;
+                       }
+                    }
+                    if(flg==1)
+                    {
+                        gen=Math.round(Math.random()*3);
+                        flg=0;
+                        i--;
+                        continue;
+                    }
+                    rndarr[i]=gen;
+                    flg=0;
+                 }
+                 var sidarr = [];
+                 var stxtarr = [];
+                 for(var i=0;i<4;i++)
+                 {
+                     var sid = $("#frm").find("button").eq(i).attr("id");
+                     var stxt = $("#frm").find("button").eq(i).text();
+                     sidarr[rndarr[i]]=sid;
+                     stxtarr[rndarr[i]]=stxt;
+                 }
+                 for(var i=0;i<4;i++)
+                 {
+                    $("#frm").find("button").eq(i).attr("id",sidarr[i]);
+                    $("#frm").find("button").eq(i).attr("value",stxtarr[i]);
+                    $("#frm").find("button").eq(i).text(stxtarr[i]);
+                 }
             },3000);
         var tmr = setInterval(function(){
            $(document).ready(function(){
@@ -113,7 +117,7 @@ $objUser = new User();
         <div class="container" align="center">
             <br/>
             <br/>
-            <h1>Odd or Even</h1>
+            <h1>Identify Logo</h1>
             <br/>
             <h3>Life : </h3>
             <i id="lf1" class="fas fa-heart" style="font-size: 30px;color: red;"></i>
@@ -126,11 +130,13 @@ $objUser = new User();
                 <br/>
                 <h2 class="card-title">Question : </h2>
                 <br/>
-                <h3 style="color: blue;">7 + 2*3</h3>
-                <br/>
-                <form id="frm" action="" method="POST">
-                    <button id="odd" class="btn btn-outline-primary col-sm-4" value="Odd">Odd</button>&nbsp;&nbsp;
-                    <button id="even" class="btn btn-outline-primary col-sm-4" value="Even">Even</button>
+                <img src="img.png" width="100px" height="140px">
+                <br/><br/>
+                <form id="frm" action="test" method="POST">
+                    <button id="opt1" name="opt1" class="btn btn-outline-primary col-sm-4" value="Opt1">Opt1</button>&nbsp;&nbsp;
+                    <button id="opt2" name="opt2" class="btn btn-outline-primary col-sm-4" value="Opt2">Opt2</button><br/><br/>
+                    <button id="opt3" name="opt3" class="btn btn-outline-primary col-sm-4" value="Opt3">Opt3</button>&nbsp;&nbsp;
+                    <button id="opt4" name="opt3" class="btn btn-outline-primary col-sm-4" value="Opt4">Opt4</button>
                 </form>
                 </div>                
             </div>
