@@ -1,3 +1,27 @@
+<?php
+session_start();
+include_once 'db/dboperations.php';
+
+$objUser = new User();
+
+ 	   $rest=$objUser->random_question($_SESSION['id']);
+        $details=mysqli_fetch_assoc($rest);
+
+ 
+
+ if(isset($_POST['submit']))
+   {
+	    $random_key=array_rand($_SESSION['ques_no'],1);
+	   $rest=$objUser->random_question($_SESSION['ques_no'][$random_key]);
+  unset($_SESSION['ques_no'][$random_key]);
+ $details=mysqli_fetch_assoc($rest);
+	 $random_key=array_rand($_SESSION['ques_no'],1);
+ //$_SESSION['ques_no'][$random_key];
+ unset($_SESSION['ques_no'][$random_key]);
+
+   }
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -101,7 +125,7 @@
                 <br/>
                 <h2 class="card-title">Question : </h2>
                 <br/>
-                <h3 style="color: blue;">1 + 2*3</h3>
+                <h3 style="color: blue;">7 + 2*3</h3>
                 <br/>
                 <form id="frm" action="" method="POST">
                     <button id="odd" class="btn btn-outline-primary col-sm-4">Odd</button>&nbsp;&nbsp;
