@@ -60,9 +60,10 @@
                   var txt2 = $("#frm").find("button").next().text();
                   $("#frm").find("button").first().attr("id",id2);
                   $("#frm").find("button").next().attr("id",id1);
+                  $("#frm").find("button").first().attr("value",txt2);
+                  $("#frm").find("button").next().attr("value",txt1);
                   $("#frm").find("button").first().text(txt2);
                   $("#frm").find("button").next().text(txt1);
-                  changelife();
             },3000);
         var tmr = setInterval(function(){
            $(document).ready(function(){
@@ -104,8 +105,8 @@
                 <h3 style="color: blue;">1 + 2*3</h3>
                 <br/>
                 <form id="frm" action="" method="POST">
-                    <button id="odd" class="btn btn-outline-primary col-sm-4">Odd</button>&nbsp;&nbsp;
-                    <button id="even" class="btn btn-outline-primary col-sm-4">Even</button>
+                    <button id="odd" class="btn btn-outline-primary col-sm-4" value="Odd">Odd</button>&nbsp;&nbsp;
+                    <button id="even" class="btn btn-outline-primary col-sm-4" value="Even">Even</button>
                 </form>
                 </div>                
             </div>
