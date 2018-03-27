@@ -1,26 +1,29 @@
 <?php
 session_start();
 include_once 'db/dboperations.php';
+$_SESSION['life']=3;
 
 $objUser = new User();
-
- 	   $rest=$objUser->random_question($_SESSION['id']);
+       // $idq=$_SESSION['id'];
+	   $_SESSION['id']=1;
+		$idq=1;
+ 	   $rest=$objUser->random_question($idq);
         $details=mysqli_fetch_assoc($rest);
 
- 
+ $answer=$details['answer'];
+    
 
- if(isset($_POST['submit']))
-   {
-	    $random_key=array_rand($_SESSION['ques_no'],1);
+   
+   /*
+    $random_key=array_rand($_SESSION['ques_no'],1);
 	   $rest=$objUser->random_question($_SESSION['ques_no'][$random_key]);
   unset($_SESSION['ques_no'][$random_key]);
  $details=mysqli_fetch_assoc($rest);
 	 $random_key=array_rand($_SESSION['ques_no'],1);
  //$_SESSION['ques_no'][$random_key];
  unset($_SESSION['ques_no'][$random_key]);
-
-   }
-
+*/
+?>
 
 <!DOCTYPE html>
 <html>
@@ -34,8 +37,9 @@ $objUser = new User();
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script type="text/javascript">
-        cnt=10;
-        life=0;
+		
+        cnt=6;
+        life=<?php echo $_SESSION['life'] ?>;
         function changelife(){
            if(life==3)
            {
@@ -97,11 +101,11 @@ $objUser = new User();
                    clearInterval(changebtn);
                    clearInterval(tmr);
                }
-               if(cnt>=5)
+               if(cnt>=3)
                {
                    $("#tmr").html("<h3 style=\"color: blue;\"><i id=\"tmr\" class=\"fas fa-stopwatch\" style=\"font-size: 30px;\"></i>&nbsp;&nbsp;"+cnt+" s</h3>");
                }
-               if(cnt<5 && cnt>0)
+               if(cnt<3 && cnt>0)
                {
                    $("#tmr").html("<h3 style=\"color: red;\"><i id=\"tmr\" class=\"fas fa-stopwatch\" style=\"font-size: 30px;\"></i>&nbsp;&nbsp;"+cnt+" s</h3>");
                }
@@ -126,19 +130,21 @@ $objUser = new User();
                 <br/>
                 <h2 class="card-title">Question : </h2>
                 <br/>
-                <h3 style="color: blue;">7 + 2*3</h3>
+                <h3 style="color: blue;"><?php echo $details['question']; ?></h3>
                 <br/>
-                <form id="frm" action="" method="POST">
-                    <button id="odd" class="btn btn-outline-primary col-sm-4" value="Odd">Odd</button>&nbsp;&nbsp;
-                    <button id="even" class="btn btn-outline-primary col-sm-4" value="Even">Even</button>
+                <form id="frm" action="check.php" method="POST">
+                    <button id="odd" name="Odd"class="btn btn-outline-primary col-sm-4" value="<?php echo $details['opt1']; ?>"><?php echo $details['opt1']; ?></button>&nbsp;&nbsp;
+                    <button id="even" name="Even" class="btn btn-outline-primary col-sm-4" value="<?php echo $details['opt2']; ?>"><?php echo $details['opt2']; ?></button>
                 </form>
                 </div>                
             </div>
             <br/>
             <div>
                 <h3>Timer : </h3>
-                <h3 id="tmr" style="color: blue;"><i class="fas fa-stopwatch" style="font-size: 30px;"></i>&nbsp;&nbsp;10 s</h3>
+                <h3 id="tmr" style="color: blue;"><i class="fas fa-stopwatch" style="font-size: 30px;"></i>&nbsp;&nbsp;6 s</h3>
             </div>
         </div>
+
+		
     </body>
 </html>
