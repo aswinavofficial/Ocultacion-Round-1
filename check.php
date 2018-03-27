@@ -10,16 +10,17 @@ $next="";
  $answer=$details['answer'];
     $filename="";
 	
-	if($_GET['timeover'])
+	 if($_GET['timeover'])
 	{
 		$filename="images/timeout.png";
 		  $_SESSION['life']=$_SESSION['life']-1;
 	 }
 	
- else if (isset($_POST['Odd'])) {
+    else if (isset($_POST['Odd'])) {
 	 if(strcmp($answer,"Odd")==0)
 	 {
 		  $filename="images/correct.jpg";
+		  $_SESSION['score']=$_SESSION['score']+10;
 	 }
 	 else
 	 {
@@ -31,11 +32,15 @@ $next="";
 	else if(strcmp($answer,"Even")==0)
 	 {
 	       $filename="images/correct.jpg";
+		   $_SESSION['score']=$_SESSION['score']+10;
+
 	 }
 	 else if (isset($_POST['opt1'])) {
 	 if(strcmp($answer,$_POST['opt1'])==0)
 	 {
 		  $filename="images/correct.jpg";
+		  		  $_SESSION['score']=$_SESSION['score']+10;
+
 	 }
 	 else
 	 {
@@ -48,6 +53,8 @@ $next="";
 	 if(strcmp($answer,$_POST['opt2'])==0)
 	 {
 		  $filename="images/correct.jpg";
+		  		  $_SESSION['score']=$_SESSION['score']+10;
+
 	 }
 	 else
 	 {
@@ -60,6 +67,8 @@ $next="";
 	 if(strcmp($answer,$_POST['opt3'])==0)
 	 {
 		  $filename="images/correct.jpg";
+		  		  $_SESSION['score']=$_SESSION['score']+10;
+
 	 }
 	 else
 	 {
@@ -72,6 +81,8 @@ $next="";
 	 if(strcmp($answer,$_POST['opt4'])==0)
 	 {
 		  $filename="images/correct.jpg";
+		  		  $_SESSION['score']=$_SESSION['score']+10;
+
 	 }
 	 else
 	 {
@@ -99,12 +110,16 @@ $_SESSION['id']=$ky;
  {
 	 $next="oddeven.php?id=".$ky;
  }
- else
+ if(strcmp($details['type'],"logo")==0)
  {
 	$next="logo.php?id=".$ky;
  }
 
- 
+ if($_SESSION['life']==0)
+	{
+		
+		header("location:gameover.php");
+	}
  ?>
 
 <!DOCTYPE html>

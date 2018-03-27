@@ -1,7 +1,12 @@
 <?php
 session_start();
 include_once 'db/dboperations.php';
-echo $_SESSION['life'];
+
+if($_SESSION['life']==0)
+	{
+		
+		header("location:gameover.php");
+	}
 
 $objUser = new User();
         $idq=$_GET['id'];
