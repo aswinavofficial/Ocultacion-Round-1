@@ -100,6 +100,7 @@ $objUser = new User();
                {
                    clearInterval(changebtn);
                    clearInterval(tmr);
+				   window.location = "check.php?timeover=1";
                }
                if(cnt>=3)
                {
@@ -132,7 +133,7 @@ $objUser = new User();
                 <br/>
                 <h3 style="color: blue;"><?php echo $details['question']; ?></h3>
                 <br/>
-                <form id="frm" action="check.php" method="POST">
+                <form id="frm" action="check.php?timeover=0" method="POST">
                     <button id="odd" name="Odd"class="btn btn-outline-primary col-sm-4" value="<?php echo $details['opt1']; ?>"><?php echo $details['opt1']; ?></button>&nbsp;&nbsp;
                     <button id="even" name="Even" class="btn btn-outline-primary col-sm-4" value="<?php echo $details['opt2']; ?>"><?php echo $details['opt2']; ?></button>
                 </form>

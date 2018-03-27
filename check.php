@@ -9,7 +9,14 @@ include_once 'db/dboperations.php';
 
  $answer=$details['answer'];
     $filename="";
- if (isset($_POST['Odd'])) {
+	
+	if($_GET['timeover'])
+	{
+		$filename="images/timeout.png";
+		  $_SESSION['life']=2;
+	 }
+	
+ else if (isset($_POST['Odd'])) {
 	 if(strcmp($answer,"Odd")==0)
 	 {
 		  $filename="images/correct.jpg";
@@ -20,7 +27,8 @@ include_once 'db/dboperations.php';
 		  $_SESSION['life']=$_SESSION['life']-1;
 	 }
         
-    } else {
+    }
+	else {
       if(strcmp($answer,"Even")==0)
 	 {
 	       $filename="images/correct.jpg";
