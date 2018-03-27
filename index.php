@@ -17,5 +17,17 @@ $res=$objUser->question_ids();
  echo $details['id'];
   echo $details['type'];
   $_SESSION['id']=$details['id'];
+  
+  if(strcmp($details['type'],"oddeven")==0)
+ {
+	 
+	 header("location:oddeven.php");
+	  
+ }
+ else
+ {
+	 header("location:logo.php");
+ }
+
  //header("location:main.php");
 ?>

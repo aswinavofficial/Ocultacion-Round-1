@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once 'db/dboperations.php';
-
+$next="";
  $objUser = new User();
  
  	   $rest=$objUser->random_question($_SESSION['id']);
@@ -40,21 +40,22 @@ include_once 'db/dboperations.php';
 	 }
 		
     }
- /*
- $random_key=array_rand($_SESSION['ques_no'],1);
  
- $rest=$objUser->random_question($_SESSION['ques_no'][$random_key]);
+ $random_key=array_rand($_SESSION['ques_no'],1);
+ $ky=$_SESSION['ques_no'][$random_key];
+ $rest=$objUser->random_question($ky);
   unset($_SESSION['ques_no'][$random_key]);
- $details=mysqli_fetch_assoc($rest); */
+ $details=mysqli_fetch_assoc($rest); 
+$_SESSION['id']=$ky;
 
- if(isset($_POST['submit']))
-   {
-	 $random_key=array_rand($_SESSION['ques_no'],1);
- //$_SESSION['ques_no'][$random_key];
- unset($_SESSION['ques_no'][$random_key]);
-
-   }
-
+ if(strcmp($details['type'],"oddeven")==0)
+ {
+	 $next="oddeven.php";
+ }
+ else
+ {
+	$next="logo.php";
+ }
 
  
  ?>
@@ -70,7 +71,14 @@ include_once 'db/dboperations.php';
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-       
+       <script type="text/javascript">   
+function Redirect() 
+{  
+window.location="<?php echo $next; ?>"; 
+} 
+
+setTimeout('Redirect()', 3000);   
+</script>
     </head>
     <body>
         <div class="container" align="center">
@@ -85,9 +93,9 @@ include_once 'db/dboperations.php';
                 
                 
                
-                
+                <a href="<?php echo $next; ?>" >
                 <img src="<?php echo $filename; ?>" width="350px" height="350px">
-               
+               </a>
             
                                
             </div>

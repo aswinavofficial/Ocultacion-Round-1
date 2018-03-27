@@ -99,6 +99,7 @@ $objUser = new User();
             },3000);
         var tmr = setInterval(function(){
            $(document).ready(function(){
+			   life=<?php echo $_SESSION['life'] ?>;
                cnt--;
                if(cnt==0)
                {
