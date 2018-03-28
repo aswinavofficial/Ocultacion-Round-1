@@ -1,8 +1,8 @@
 <?php
 session_start();
 include_once 'db/dboperations.php';
-
-if($_SESSION['life']==0)
+$_SESSION['count']=$_SESSION['count']+1;
+if($_SESSION['life']==0||$_SESSION['count']==10 )
 	{
 		
 		header("location:gameover.php");

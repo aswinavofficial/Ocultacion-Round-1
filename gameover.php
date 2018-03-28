@@ -24,7 +24,7 @@ function Redirect()
 window.location="index.php"; 
 } 
 
-setTimeout('Redirect()', 3000);   
+//setTimeout('Redirect()', 3000);   
 </script> 
     </head>
     <body>
@@ -34,8 +34,7 @@ setTimeout('Redirect()', 3000);
             
             <br/>
             
-            <br/>
-            <br/>
+            
             <div class="card col-sm-4" id="ques">
                 
                 <h2 class="card-title">Score : <?php echo $_SESSION['score']; ?></h2>
@@ -43,8 +42,10 @@ setTimeout('Redirect()', 3000);
                 <a href="index.php" >
                 <img src="images/gameover.png" width="350px" height="350px">
                </a>
-            
-                               
+            <br/>
+			<br/>
+             <button id="newgame" onClick="Redirect()" name="newgame"class="btn btn-outline-primary col-sm-4" value="w">NEW GAME</button>&nbsp;&nbsp;
+              
             </div>
             <br/>
            

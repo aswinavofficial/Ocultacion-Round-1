@@ -3,6 +3,7 @@ session_start();
 include_once 'db/dboperations.php';
 $_SESSION['life']=3;
 $_SESSION['score']=0;
+$_SESSION['count']=1;
  $objUser = new User();
 $res=$objUser->question_ids();
  $_SESSION['ques_no']=array();
@@ -33,3 +34,6 @@ $res=$objUser->question_ids();
 
  //header("location:main.php");
 ?>
+
+
+

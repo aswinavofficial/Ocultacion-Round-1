@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once 'db/dboperations.php';
-
+$_SESSION['count']=$_SESSION['count']+1;
 if($_SESSION['life']==0)
 	{
 		
