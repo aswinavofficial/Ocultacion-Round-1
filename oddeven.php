@@ -8,6 +8,11 @@ if($_SESSION['life']==0||$_SESSION['count']==10 )
 		header("location:gameover.php");
 	}
 
+	 if(isset($_POST['Name']))
+   {
+	  $_SESSION['Name']=$_POST['Name'];
+
+   }
 $objUser = new User();
         $idq=$_GET['id'];
 	  
@@ -17,7 +22,7 @@ $objUser = new User();
 
  $answer=$details['answer'];
     
-
+if($details['type'])
    
    /*
     $random_key=array_rand($_SESSION['ques_no'],1);

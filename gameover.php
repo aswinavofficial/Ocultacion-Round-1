@@ -2,8 +2,15 @@
 session_start();
 include_once 'db/dboperations.php';
 $next="";
+$no1=0;
  $objUser = new User();
- 
+ $IP=$_SERVER['REMOTE_ADDR'];
+ $Name=$_SESSION['Name'];
+ $Score=$_SESSION['score'];
+ $Level=1;
+ $res=$objUser->insert_score_table($Name,$Score,$Level,$IP);
+ $highscores=$objUser->fetch_highscores();
+ $no1=mysqli_num_rows( $highscores );
 ?>
 
 
@@ -40,14 +47,75 @@ window.location="index.php";
                 <h2 class="card-title">Score : <?php echo $_SESSION['score']; ?></h2>
                
                 <a href="index.php" >
-                <img src="images/gameover.png" width="350px" height="350px">
+                <img src="images/gameover.png" width="300px" height="300px">
                </a>
             <br/>
 			<br/>
-             <button id="newgame" onClick="Redirect()" name="newgame"class="btn btn-outline-primary col-sm-4" value="w">NEW GAME</button>&nbsp;&nbsp;
+			
+             <button id="newgame" onClick="Redirect()" name="newgame" class="btn btn-outline-primary col-sm-4" value="w">NEW GAME</button>&nbsp;&nbsp; <br/> 
               
+			  <button id="leaderboard" data-toggle="modal" data-target="#myModal" class="btn btn-outline-primary col-sm-4" >HIGHSCORES</button>&nbsp;&nbsp;
+
             </div>
             <br/>
+			
+			  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          
+        </div>
+        <div class="modal-body">
+          				<div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+									<h3> HIGHSCORES </h3>
+									       <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+				  <th>Rank</th>
+                  <th>Name</th>
+				  <th>Score</th>
+                  <th>Level</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  
+                </tr>
+              </tfoot>
+              <tbody>
+                 <?php
+				 $cnt=1;
+                              if( $no1==0 ){
+                                 echo '<tr><td colspan="6">No Result Found!!!</td></tr>';
+		
+                                 }else{
+                                while( $row = mysqli_fetch_assoc( $highscores ) ){
+									
+									
+                               echo " <tr > <td>#{$cnt} </td><td>{$row['Name']} </td><td>{$row['Score']} </td><td>{$row['Level']}</td></tr>\n";
+                              $cnt=$cnt+1;
+							  }
+                                  }
+                                      ?>
+              </tbody>
+            </table>
+          </div>
+									</div>
+									
+							</div>	
+		  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
            
         </div>
     </body>

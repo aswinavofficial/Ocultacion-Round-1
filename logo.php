@@ -7,6 +7,11 @@ if($_SESSION['life']==0)
 		
 		header("location:gameover.php");
 	}
+	 if(isset($_POST['Name']))
+   {
+	  $_SESSION['Name']=$_POST['Name'];
+
+   }
 $objUser = new User();
        $idq=$_GET['id'];
 		

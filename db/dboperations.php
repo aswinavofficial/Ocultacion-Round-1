@@ -39,9 +39,24 @@ class User {
 	
 		
 	}
-	
-	
 
+   
+	
+	public function insert_score_table($Name,$Score,$Level,$IP)
+	{
+		$sql = "INSERT INTO scores( Name,Score,Level,IP) VALUES
+		('$Name', '$Score','$Level','$IP')";
+		//$sql="insert into scores(Name,Score,Level,IP) values('$Name','$Score','$Level','$IP') ";
+		return $this->dbObj->ExecuteQuery($sql, 2); 
+		
+	}
+	
+	public function fetch_highscores()
+	{
+			$sql = "SELECT * FROM scores  ORDER BY Score DESC LIMIT 5";	
+
+		return $this->dbObj->ExecuteQuery($sql, 1);
+	}
 
 }
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 28, 2018 at 07:20 AM
+-- Generation Time: Mar 28, 2018 at 08:39 AM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `image` varchar(100) DEFAULT NULL,
   `type` varchar(500) DEFAULT 'quiz',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `questions`
@@ -51,25 +51,25 @@ INSERT INTO `questions` (`id`, `question`, `opt1`, `opt2`, `opt3`, `opt4`, `answ
 (2, NULL, 'Epiphany', 'Elementary', 'Emacs', 'Simphony', 'Elementary', 'q1.jpg', 'logo'),
 (3, '7 * 3 + 5', 'Odd', 'Even', '3', '4', 'Even', NULL, 'oddeven'),
 (4, '9', 'Iris', 'Spark', 'Hadoop', 'Cassandra', 'Cassandra', 'q2.jpg', 'logo'),
-(5, '(8+3)*(12-3)', 'Odd', 'Even', 'bsd', 'bfb ', 'Even', 'bdbf', 'oddeven'),
+(5, '(8+3)*(12-3)', 'Odd', 'Even', 'bsd', 'bfb ', 'Odd', 'bdbf', 'oddeven'),
 (6, 'bdb d', 'Vue', 'Vuforia', 'VueJS', 'Vector', 'VueJS', 'q3.png', 'logo'),
 (7, '(9-7)+(2*3)', 'Odd', 'Even', 'vwev', 'qwrbva', 'Even', 'wv sz', 'oddeven'),
 (8, 't4', 'Electron', 'Aurelia', 'Code Ignitor', 'FlexBox', 'Aurelia', 'q4.png', 'logo'),
 (9, '(44/4)*3', 'Odd', 'Even', 'serbws', 'aebfs', 'Odd', 'gwsergw', 'oddeven'),
 (10, 'qfved', 'GNU', 'GRUB', 'GREP', 'Bison', 'GNU', 'q5.png', 'logo'),
 (11, '(6*11)+(9-2)', 'Odd', 'Even', '2fvsrbv', 'qf3veaf', 'Odd', 'frqaegwe', 'oddeven'),
-(12, 'ewgfvsegqfgvs', 'OSI', 'YACC', 'FSF', 'Apache Foundation', 'OSI', 'q6.png', 'logo'),
+(12, 'ewgfvsegqfgvs', 'OSI', 'YACC', 'FSF', 'Apache', 'OSI', 'q6.png', 'logo'),
 (13, '(4)^3 + (9-4)', 'Odd', 'Even', 'qwfqe', 'wrfqef', 'Odd', 'rfqfa', 'oddeven'),
-(14, 'xfcawgvsfaev', 'Joomla', 'NodeJS Foundation', 'Oracle', 'WikiMedia', 'WikiMedia', 'q7.png', 'logo'),
+(14, 'xfcawgvsfaev', 'Joomla', 'NodeJS', 'Oracle', 'WikiMedia', 'WikiMedia', 'q7.png', 'logo'),
 (15, 'gvfsedv', 'Redox', 'Rust', 'React', 'Yarn', 'Rust', 'q8.png', 'logo'),
 (16, '(7-9)+(6^4)', 'Odd', 'Even', 'casvd ', 'sdvawv', 'Even', 'vvavcawc', 'oddeven'),
 (17, 'xcwdv', 'Flex', 'FSF', 'Unreal', 'Unity', 'Unreal', 'q9.png', 'logo'),
 (18, '(45%5)+(8/2)', 'Odd', 'Even', 'XVAS', 'SDVA', 'Even', 'ADVAW', 'oddeven'),
 (19, '(69-7)*(2+3)', 'Odd', 'Even', 'FDHTYH', 'FHDTR', 'Odd', 'FGDFGR', 'oddeven'),
-(20, '(23+9)-7', 'Odd', 'Even', 'CF', 'DF', 'Odd', 'G', 'oddeven'),
+(20, '(23+9)-7', 'Odd', 'Even', 'CF', 'DF', 'Even', 'G', 'oddeven'),
 (21, '(4-6)+(89-43)', 'Odd', 'Even', 'ASDVASDVASDVA', 'SDVADV', 'Even', 'SDVABV', 'oddeven'),
 (22, '(1)^1026+(9*7)', 'Odd', 'Even', 'SDBVBA', 'SCBAV', 'Even', 'ASVAV', 'oddeven'),
-(23, '3^2 + 5', 'PixieJS', 'PhasorJS', 'Godot', 'Cryengine', 'Godot', 'q10.png', 'logo');
+(23, '', 'PixieJS', 'PhasorJS', 'Godot', 'Cryengine', 'Godot', 'q10.png', 'logo');
 
 -- --------------------------------------------------------
 
