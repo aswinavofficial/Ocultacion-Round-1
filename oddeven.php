@@ -129,13 +129,21 @@ $objUser = new User();
             <br/>
             <br/>
             <h1>Odd or Even</h1>
-            <br/>
-            <h3>Life : </h3>
-            <i id="lf1" class="fas fa-heart" style="font-size: 30px;color: red;"></i>
+           <div class="row">
+	  <div class="col-sm-6" >
+	  
+                
+                <h3 id="tmr" style="color: blue;"><i class="fas fa-stopwatch" style="font-size: 30px;"></i>&nbsp;&nbsp;10 s</h3>
+            </div>
+	  
+	  
+	   <div class="col-sm-6" >
+	   <i id="lf1" class="fas fa-heart" style="font-size: 30px;color: red;"></i>
             <i id="lf2" class="fas fa-heart" style="font-size: 30px;color: red;"></i>
             <i id="lf3" class="far fa-heart" style="font-size: 30px;color: red;"></i>
-            <br/>
-            <br/>
+	  
+	  </div>
+	  </div>
             <div class="card col-sm-4" id="ques">
                 <div class="card-body">
                 <br/>
@@ -150,10 +158,7 @@ $objUser = new User();
                 </div>                
             </div>
             <br/>
-            <div>
-                <h3>Timer : </h3>
-                <h3 id="tmr" style="color: blue;"><i class="fas fa-stopwatch" style="font-size: 30px;"></i>&nbsp;&nbsp;6 s</h3>
-            </div>
+            
         </div>
 
 		
