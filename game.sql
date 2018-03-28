@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 28, 2018 at 08:39 AM
+-- Generation Time: Mar 28, 2018 at 02:44 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -70,6 +70,31 @@ INSERT INTO `questions` (`id`, `question`, `opt1`, `opt2`, `opt3`, `opt4`, `answ
 (21, '(4-6)+(89-43)', 'Odd', 'Even', 'ASDVASDVASDVA', 'SDVADV', 'Even', 'SDVABV', 'oddeven'),
 (22, '(1)^1026+(9*7)', 'Odd', 'Even', 'SDBVBA', 'SCBAV', 'Even', 'ASVAV', 'oddeven'),
 (23, '', 'PixieJS', 'PhasorJS', 'Godot', 'Cryengine', 'Godot', 'q10.png', 'logo');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `scores`
+--
+
+DROP TABLE IF EXISTS `scores`;
+CREATE TABLE IF NOT EXISTS `scores` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(30) DEFAULT NULL,
+  `Score` int(10) NOT NULL DEFAULT '0',
+  `Level` int(10) DEFAULT '0',
+  `Time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `IP` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `scores`
+--
+
+INSERT INTO `scores` (`id`, `Name`, `Score`, `Level`, `Time`, `IP`) VALUES
+(30, 'Aswin', 70, 1, '2018-03-28 14:34:23', '::1'),
+(31, 'Aswin', 10, 1, '2018-03-28 14:41:54', '::1');
 
 -- --------------------------------------------------------
 
