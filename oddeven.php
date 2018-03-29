@@ -109,6 +109,27 @@ if($details['type'])
             },3000);
         var tmr = setInterval(function(){
            $(document).ready(function(){
+			   
+			   if (window.history && window.history.pushState) {
+
+        $(window).on('popstate', function() {
+          var hashLocation = location.hash;
+          var hashSplit = hashLocation.split("#!/");
+          var hashName = hashSplit[1];
+
+          if (hashName !== '') {
+            var hash = window.location.hash;
+            if (hash === '') {
+              alert('Back button was pressed...GameOver');
+                window.location='gameover.php';
+                return false;
+            }
+          }
+        });
+
+        window.history.pushState('forward', null, './#forward');
+      }
+
 			   life=<?php echo $_SESSION['life'] ?>;
                cnt--;
                if(cnt==0)
