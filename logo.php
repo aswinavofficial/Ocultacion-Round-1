@@ -47,21 +47,23 @@ $objUser = new User();
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       
 <script>
+	  
+	  
       document.onkeypress = function (event) {
         event = (event || window.event);
-        if (event.keyCode == 123) {
+        if (event.keyCode == 123 || event.keyCode == 116) {
           return false;
         }
       }
       document.onmousedown = function (event) {
         event = (event || window.event);
-        if (event.keyCode == 123) {
+        if (event.keyCode == 123 || event.keyCode == 116) {
           return false;
         }
       }
       document.onkeydown = function (event) {
         event = (event || window.event);
-        if (event.keyCode == 123) {
+        if (event.keyCode == 123 || event.keyCode == 116) {
           return false;
         }
       }
