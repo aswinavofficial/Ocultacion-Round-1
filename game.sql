@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 28, 2018 at 02:44 PM
+-- Generation Time: Mar 30, 2018 at 05:50 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `image` varchar(100) DEFAULT NULL,
   `type` varchar(500) DEFAULT 'quiz',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `questions`
@@ -69,7 +69,22 @@ INSERT INTO `questions` (`id`, `question`, `opt1`, `opt2`, `opt3`, `opt4`, `answ
 (20, '(23+9)-7', 'Odd', 'Even', 'CF', 'DF', 'Even', 'G', 'oddeven'),
 (21, '(4-6)+(89-43)', 'Odd', 'Even', 'ASDVASDVASDVA', 'SDVADV', 'Even', 'SDVABV', 'oddeven'),
 (22, '(1)^1026+(9*7)', 'Odd', 'Even', 'SDBVBA', 'SCBAV', 'Even', 'ASVAV', 'oddeven'),
-(23, '', 'PixieJS', 'PhasorJS', 'Godot', 'Cryengine', 'Godot', 'q10.png', 'logo');
+(23, '', 'PixieJS', 'PhasorJS', 'Godot', 'Cryengine', 'Godot', 'q10.png', 'logo'),
+(24, NULL, 'Apache Server', 'Ajax', 'Angular JS', 'Archery', 'Angular JS', 'Angular JS.png', 'logo'),
+(25, NULL, 'At&T', 'iBall', 'SanDisk', 'Airtel', 'Airtel', 'Airtel.png', 'quiz'),
+(26, NULL, 'Bing', 'CloudWorld', 'Microsoft Cloud', 'G Drive', 'Bing', 'Bing', 'logo.jpg'),
+(27, NULL, 'Android JellyBean', 'Candy Crush Saga', 'Android Lollypop', 'Candy Ville', 'Candy Crush Saga', 'Candy Crush Saga.jpg', 'logo'),
+(28, NULL, 'AXML', 'Android Viewer', 'App Store', 'None of these', 'App Store', 'App Store.jpg', 'logo'),
+(29, NULL, 'E-Target', 'Spamton', 'T-Mobile', 'Norton', 'Norton', 'Norton.png', 'logo'),
+(30, NULL, 'BlueFish', 'Blue Firm', 'Blue Shark', 'None of these', 'BlueFish', 'BlueFish.jpg', 'logo'),
+(31, NULL, 'Dream Viewer', 'Myntra.com', 'RedBus.in', 'MTS', 'MTS', 'MTS.jpg', 'logo'),
+(32, NULL, 'Google Wallet', 'Bluestacks', 'Android Bucket', 'None of these', 'Bluestacks', 'Bluestacks.jpg', 'logo'),
+(33, NULL, 'iTune', 'i-Reader', 'iPod', 'Iball', 'Iball', 'Iball.jpg', 'logo'),
+(34, NULL, 'GeekLog 7', 'Mamboo 3', 'Concrete 5', 'CSS 2', 'Concrete 5', 'Concrete 5.jpg', 'logo'),
+(35, NULL, 'Xoops', 'XCode', 'XQueue', 'XOL', 'XCode', 'XCode.jpg', 'logo'),
+(36, NULL, 'GhostClean', 'ModX', 'Scuttle', 'Snapchat', 'Snapchat', 'Snapchat.png', 'logo'),
+(37, NULL, 'BigData', 'Bitcoin', 'BigRocks', 'BlockChain', 'Bitcoin', 'Bitcoin.png', 'logo'),
+(38, NULL, 'Minions', 'Android', 'Go Language', 'Node JS', 'Go Language', 'Go Language.jpg', 'logo');
 
 -- --------------------------------------------------------
 
@@ -86,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `scores` (
   `Time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `IP` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `scores`
@@ -94,7 +109,19 @@ CREATE TABLE IF NOT EXISTS `scores` (
 
 INSERT INTO `scores` (`id`, `Name`, `Score`, `Level`, `Time`, `IP`) VALUES
 (30, 'Aswin', 70, 1, '2018-03-28 14:34:23', '::1'),
-(31, 'Aswin', 10, 1, '2018-03-28 14:41:54', '::1');
+(31, 'Aswin', 10, 1, '2018-03-28 14:41:54', '::1'),
+(32, 'Aswin', 30, 1, '2018-03-29 17:21:32', '::1'),
+(33, 'Aswin', 30, 1, '2018-03-29 17:44:27', '::1'),
+(34, NULL, 30, 1, '2018-03-29 18:10:53', '::1'),
+(35, NULL, 0, 1, '2018-03-29 18:13:00', '::1'),
+(36, NULL, 0, 1, '2018-03-29 18:14:31', '::1'),
+(37, NULL, 0, 1, '2018-03-29 18:26:23', '::1'),
+(38, NULL, 0, 1, '2018-03-29 18:53:26', '::1'),
+(39, NULL, 0, 1, '2018-03-29 18:55:19', '::1'),
+(40, NULL, 0, 1, '2018-03-30 04:39:42', '::1'),
+(41, NULL, 0, 1, '2018-03-30 04:43:10', '::1'),
+(42, 'Aswin', 0, 1, '2018-03-30 06:41:54', '::1'),
+(43, 'Aswin', 0, 1, '2018-03-30 07:07:46', '::1');
 
 -- --------------------------------------------------------
 
