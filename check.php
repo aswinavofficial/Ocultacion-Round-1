@@ -3,49 +3,37 @@ session_start();
 include_once 'db/dboperations.php';
 $next="";
  $objUser = new User();
- 
+ $Correct=0;
  	   $rest=$objUser->random_question($_SESSION['id']);
         $details=mysqli_fetch_assoc($rest);
-
+ $score=$details['score'];
  $answer=$details['answer'];
     $filename="";
 	
+	if($_SESSION['count']==20)
+	{
+		header("location:gameover.php");
+		
+	}
 	 if($_GET['timeover'])
 	{
 		$filename="images/timeout.png";
-		  $_SESSION['life']=$_SESSION['life']-1;
+		  
 	 }
 	
-    else if (isset($_POST['Odd'])) {
-	 if(strcmp($answer,"Odd")==0)
-	 {
-		  $filename="images/correct.jpg";
-		  $_SESSION['score']=$_SESSION['score']+10;
-	 }
-	 else
-	 {
-		  $filename="images/wrong.jpg";
-		  $_SESSION['life']=$_SESSION['life']-1;
-	 }
-        
-    }
-	else if(strcmp($answer,"Even")==0)
-	 {
-	       $filename="images/correct.jpg";
-		   $_SESSION['score']=$_SESSION['score']+10;
-
-	 }
+    
 	 else if (isset($_POST['opt1'])) {
 	 if(strcmp($answer,$_POST['opt1'])==0)
 	 {
 		  $filename="images/correct.jpg";
-		  		  $_SESSION['score']=$_SESSION['score']+10;
+		  		  $_SESSION['score']=$_SESSION['score']+$score;
+				   $Correct=1;
 
 	 }
 	 else
 	 {
 		  $filename="images/wrong.jpg";
-		  $_SESSION['life']=$_SESSION['life']-1;
+		 
 	 }
         
     }
@@ -53,13 +41,13 @@ $next="";
 	 if(strcmp($answer,$_POST['opt2'])==0)
 	 {
 		  $filename="images/correct.jpg";
-		  		  $_SESSION['score']=$_SESSION['score']+10;
-
+		  		  $_SESSION['score']=$_SESSION['score']+$score;
+      $Correct=1;
 	 }
 	 else
 	 {
 		  $filename="images/wrong.jpg";
-		  $_SESSION['life']=$_SESSION['life']-1;
+		 
 	 }
         
     }
@@ -67,13 +55,14 @@ $next="";
 	 if(strcmp($answer,$_POST['opt3'])==0)
 	 {
 		  $filename="images/correct.jpg";
-		  		  $_SESSION['score']=$_SESSION['score']+10;
+		  		  $_SESSION['score']=$_SESSION['score']+$score;
+				  $Correct=1;
 
 	 }
 	 else
 	 {
 		  $filename="images/wrong.jpg";
-		  $_SESSION['life']=$_SESSION['life']-1;
+		 
 	 }
         
     }
@@ -81,23 +70,25 @@ $next="";
 	 if(strcmp($answer,$_POST['opt4'])==0)
 	 {
 		  $filename="images/correct.jpg";
-		  		  $_SESSION['score']=$_SESSION['score']+10;
-
+		  		  $_SESSION['score']=$_SESSION['score']+$score;
+                $Correct=1;
 	 }
 	 else
 	 {
 		  $filename="images/wrong.jpg";
-		  $_SESSION['life']=$_SESSION['life']-1;
+		  
 	 }
         
     }
 	 else
 	 {
 		   $filename="images/wrong.jpg";
-		   $_SESSION['life']=$_SESSION['life']-1;
+		   
 	 }
 		
-    
+    $IP=$_SERVER['REMOTE_ADDR'];
+ $Name=$_SESSION['Name'];
+$res=$objUser->update_score_table($Name,$_SESSION['score'],$_SESSION['count'],$Correct,$IP);
  
  $random_key=array_rand($_SESSION['ques_no'],1);
  $ky=$_SESSION['ques_no'][$random_key];
@@ -106,20 +97,20 @@ $next="";
  $details=mysqli_fetch_assoc($rest); 
 $_SESSION['id']=$ky;
  
- if(strcmp($details['type'],"oddeven")==0)
+ if(strcmp($details['type'],"text")==0)
  {
-	 $next="oddeven.php?id=".$ky;
+	 $next="text.php?id=".$ky;
  }
- if(strcmp($details['type'],"logo")==0)
+ if(strcmp($details['type'],"image")==0)
  {
-	$next="logo.php?id=".$ky;
+	$next="image.php?id=".$ky;
  }
 
- if($_SESSION['life']==0)
+ /*if($_SESSION['life']==0)
 	{
 		
 		header("location:gameover.php");
-	}
+	} */
  ?>
 
 <!DOCTYPE html>
@@ -192,7 +183,7 @@ function Redirect()
 window.location="<?php echo $next; ?>"; 
 } 
 
-setTimeout('Redirect()', 3000);   
+setTimeout('Redirect()', 5000);   
 </script> 
     </head>
     <body>

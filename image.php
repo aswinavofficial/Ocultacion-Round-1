@@ -232,8 +232,8 @@ $objUser = new User();
                 <br/>
                 <h2 class="card-title">Question : </h2>
                 <br/>
-                <img src="images/<?php echo $details['image']; ?>" width="100px" height="140px">
-                <br/><br/>
+                <h3 style="color: blue;"><?php echo $details['question']; ?></h3>
+                <br/>
                 <form id="frm" action="check.php?timeover=0" method="POST">
                     <button id="opt1" name="opt1" class="btn btn-outline-primary col-sm-4" value="<?php echo $details['opt1']; ?>"><?php echo $details['opt1']; ?></button>&nbsp;&nbsp;
                     <button id="opt2" name="opt2" class="btn btn-outline-primary col-sm-4" value="<?php echo $details['opt2']; ?>"><?php echo $details['opt2']; ?></button><br/><br/>

@@ -4,9 +4,9 @@
 class db {
 
     public $host = "localhost";
-    public $user = "game";
-    public $password = "game123";
-    public $databse = "game";
+    public $user = "ocultacion";
+    public $password = "ocultacion123";
+    public $databse = "ocultacion";
     public $con;
 
 

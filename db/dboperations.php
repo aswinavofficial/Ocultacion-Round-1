@@ -51,6 +51,14 @@ class User {
 		
 	}
 	
+	public function update_score_table($Name,$Score,$Count,$Correct,$IP)
+	{
+		$sql = "update scores set Score='$Score',Count='$Count',Correct=Correct+'$Correct',IP='$IP',Time=now() where Name='$Name'";
+		
+		return $this->dbObj->ExecuteQuery($sql, 3); 
+		
+	}
+	
 	public function fetch_highscores()
 	{
 			$sql = "SELECT * FROM scores  ORDER BY Score DESC LIMIT 5";	

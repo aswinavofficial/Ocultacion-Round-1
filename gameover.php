@@ -8,7 +8,7 @@ $no1=0;
  $Name=$_SESSION['Name'];
  $Score=$_SESSION['score'];
  $Level=1;
- $res=$objUser->insert_score_table($Name,$Score,$Level,$IP);
+
  $highscores=$objUser->fetch_highscores();
  $no1=mysqli_num_rows( $highscores );
 ?>
@@ -102,11 +102,11 @@ window.location="index.php";
                </a>
             <br/>
 			<br/>
-			
+			<!--
              <button id="newgame" onClick="Redirect()" name="newgame" class="btn btn-outline-primary col-sm-4" value="w">NEW GAME</button>&nbsp;&nbsp; <br/> 
               
 			  <button id="leaderboard" data-toggle="modal" data-target="#myModal" class="btn btn-outline-primary col-sm-4" >HIGHSCORES</button>&nbsp;&nbsp;
-
+   -->
             </div>
             <br/>
 			
