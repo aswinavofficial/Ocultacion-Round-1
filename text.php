@@ -228,7 +228,7 @@ $objUser = new User();
             
             <br/>
             <br/>
-            <div class="card col-sm-4" id="ques">
+            <div class="card col-sm-12" id="ques">
                 <div class="card-body">
                 <br/>
                 <h2 class="card-title">Question : </h2>

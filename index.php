@@ -117,12 +117,12 @@ window.location="<?php echo $link; ?>";
             <br/>
             
             
-            <div class="card col-sm-4" id="ques">
+            <div class="card col-sm-12" id="ques">
                 
                 <h2 class="card-title">Ocultación Round 1</h2>
                
                 <a href="index.php" >
-                <img src="images/poster.jpg" width="250px" height="250px">
+                <img src="images/poster.jpg" width="500px" height="300px">
                </a>
             <br/>
 			<br/>
