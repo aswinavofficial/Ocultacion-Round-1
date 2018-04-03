@@ -7,6 +7,16 @@ $no1=0;
  $IP=$_SERVER['REMOTE_ADDR'];
  $Name=$_SESSION['Name'];
  $Score=$_SESSION['score'];
+ $Score=59;
+ if($Score>=50)
+ {
+	$img="rubix.jpg"; 
+	 
+ }
+ else{
+	 
+	 $img="gameover.";
+ }
  $Level=1;
 
  $highscores=$objUser->fetch_highscores();
@@ -79,7 +89,7 @@ $no1=0;
         });	  
 function Redirect() 
 {  
-window.location="index.php"; 
+window.location="hint.php"; 
 } 
 
 //setTimeout('Redirect()', 3000);   
@@ -98,13 +108,23 @@ window.location="index.php";
                 <h2 class="card-title">Score : <?php echo $_SESSION['score']; ?></h2>
                
                 <a href="index.php" >
-                <img src="images/gameover.png" width="300px" height="300px">
+                <img src="images/<?php echo $img ?>" width="300px" height="300px">
                </a>
             <br/>
 			<br/>
-			<!--
-             <button id="newgame" onClick="Redirect()" name="newgame" class="btn btn-outline-primary col-sm-4" value="w">NEW GAME</button>&nbsp;&nbsp; <br/> 
-              
+			<?php
+			 if($Score>=50)
+              {
+	       echo '<button id="newgame" onClick="Redirect()" name="newgame" class="btn btn-outline-primary col-sm-4" value="w">HINT</button>&nbsp;&nbsp; <br/>';  
+	 
+                } 
+				else{
+					echo "MOVE TO RUBIX CUBE ROUND ";
+				}
+				
+				?>
+             
+              <!--
 			  <button id="leaderboard" data-toggle="modal" data-target="#myModal" class="btn btn-outline-primary col-sm-4" >HIGHSCORES</button>&nbsp;&nbsp;
    -->
             </div>
