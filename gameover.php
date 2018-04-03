@@ -7,7 +7,7 @@ $no1=0;
  $IP=$_SERVER['REMOTE_ADDR'];
  $Name=$_SESSION['Name'];
  $Score=$_SESSION['score'];
- $Score=59;
+ 
  if($Score>=50)
  {
 	$img="rubix.jpg"; 
